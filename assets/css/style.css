@@ -52,6 +52,8 @@ nav .container {
 #sobre {
 	padding-top: 10%;
 	padding-bottom: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .sobre_button {
@@ -61,6 +63,7 @@ nav .container {
 #contato {
 	margin: 5%;
 }
+
 
 textarea {
 	resize: none;
@@ -104,7 +107,9 @@ textarea {
   	margin-bottom: 5%;
   	margin-left: 20%;
   	margin-right: 20%;
-  }
+  } 
+
+
 
 }
 
