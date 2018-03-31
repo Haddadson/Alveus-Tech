@@ -58,8 +58,12 @@ nav .container {
 	margin-top: 10%;
 }
 
-#contato-button {
-	float: ;
+#contato {
+	margin: 5%;
+}
+
+textarea {
+	resize: none;
 }
 
 /* Media Query para Iphone X */
