@@ -34,3 +34,29 @@ nav .container {
 .sobre_button {
 	margin-top: 10%;
 }
+
+
+/* Media Query para Iphone X */
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+  #sobre {
+  	padding: 5%;
+  }
+
+  #sobre h2 {
+  	font-size: 35px;
+  }
+
+  #sobre p, #sobre ul > li{
+  	font-size: 20px;
+  }
+  .sobre_button{
+  	padding-left: 35%;
+  	padding-right: 10%;
+  }
+}
