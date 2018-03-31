@@ -1,9 +1,24 @@
 .home {
-	background-image: url('../img/home.jpg');
 	width: 100%;
-	height: 300px;
+	height: 100%;
 	padding-top: 15%;
-	padding-bottom: 20%;
+	padding-bottom: 22%;
+}
+
+#home {
+	background-image: url('../img/home.jpg');
+}
+
+#home-2{
+	background-image: url('../img/home-2.jpg');
+}
+
+#promo-empresa{
+	margin-bottom: 10%;
+}
+
+#empresas {
+	margin-top: 5%;
 }
 
 .logo {
@@ -16,12 +31,12 @@
 
 .home h1{
 	color:#ffffff;
-	font-size: 45px;
+	font-size: 55px;
 }
 
 .home p{
 	color:#ffffff;
-	font-size: 25px;
+	font-size: 35px;
 }
 
 nav .container {
@@ -43,6 +58,9 @@ nav .container {
 	margin-top: 10%;
 }
 
+#contato-button {
+	float: ;
+}
 
 /* Media Query para Iphone X */
 /* Portrait */
@@ -67,4 +85,103 @@ nav .container {
   	padding-left: 35%;
   	padding-right: 10%;
   }
+
+  #promo-empresa {
+  	font-size: 35px;
+  }
+
+  #empresas img {
+  	height: 100%;
+  	width: 100%;
+  }
+
+  #empresas div {
+  	margin-top: 5%;
+  	margin-bottom: 5%;
+  	margin-left: 20%;
+  	margin-right: 20%;
+  }
+
+}
+
+/*Iphone 4, 5*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+  
+  #sobre {
+  		padding: 5%;
+  	}
+
+  	#sobre h2 {
+  		font-size: 35px;
+  	}
+
+  	#sobre p, #sobre ul > li{
+  		font-size: 20px;
+  	}
+  	.sobre-button{
+  		padding-left: 35%;
+  		padding-right: 10%;
+  	}
+
+  	#promo-empresa {
+  		font-size: 35px;
+  	}
+
+  	#empresas img {
+  		height: 100%;
+  		width: 100%;
+  	}
+
+  	#empresas div {
+  		margin-top: 5%;
+  		margin-bottom: 5%;
+  		margin-left: 20%;
+  		margin-right: 20%;
+  	}
+
+}
+
+/*Galaxy S5*/
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+  #sobre {
+  		padding: 5%;
+  	}
+
+  	#sobre h2 {
+  		font-size: 35px;
+  	}
+
+  	#sobre p, #sobre ul > li{
+  		font-size: 20px;
+  	}
+  	.sobre_button{
+  		padding-left: 35%;
+  		padding-right: 10%;
+  	}
+
+  	#promo-empresa {
+  		font-size: 35px;
+  	}
+
+  	#empresas img {
+  		height: 100%;
+  		width: 100%;
+  	}
+
+  	#empresas div {
+  		margin-top: 5%;
+  		margin-bottom: 5%;
+  		margin-left: 20%;
+  		margin-right: 20%;
+  	}
+
 }
