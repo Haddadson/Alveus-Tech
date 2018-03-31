@@ -6,6 +6,14 @@
 	padding-bottom: 20%;
 }
 
+.logo {
+	width: 30px;
+	height: 30px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
 .home h1{
 	color:#ffffff;
 	font-size: 45px;
