@@ -111,6 +111,10 @@ textarea {
 	color: #ffffff;
 }
 
+.thumb-noticia {
+	width: 152px;
+}
+
 .noticia {
 	margin-top: 2%;
 	margin-bottom: 2%;
@@ -143,8 +147,14 @@ textarea {
 .img-noticia {
 	margin-top: 3%;
 	margin-bottom: 3%;
-
 }
+
+.corpo > p {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+
 
 
 /* Media Query para Iphone X */
@@ -211,6 +221,12 @@ textarea {
   	font-size: 20px;
   }
 
+  .thumb-noticia {
+	width: 250px;
+	height: 250px;
+  }
+
+
 }
 
 /*Iphone 4, 5*/
@@ -269,6 +285,11 @@ textarea {
 
   #promo-empresa-proposito2 {
   	font-size: 20px;
+  }
+
+  .thumb-noticia {
+  	width: 250px;
+  	height: 250px;
   }
 
 }
@@ -330,6 +351,11 @@ textarea {
 
   #promo-empresa-proposito2 {
   	font-size: 20px;
+  }
+
+  .thumb-noticia {
+	width: 250px;
+	height: 250px;
   }
 
 }
