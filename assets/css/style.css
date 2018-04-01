@@ -11,6 +11,16 @@
 
 #home-2{
 	background-image: url('../img/home-2.jpg');
+	padding-bottom: 15%;
+}
+
+#proposito-2{
+	background-image: url('../img/about-3.jpg');
+	padding-bottom: 15%;
+}
+
+#proposito-2 > div > div {
+	filter: brightness(100%);
 }
 
 #promo-empresa{
@@ -69,6 +79,32 @@ textarea {
 	resize: none;
 }
 
+#img-proposito {
+	margin-top: 3%;	
+}
+
+#proposito {
+	margin-bottom: 3%;
+}
+
+.proposito h2 {
+	font-size: 40px;
+
+}
+
+.proposito p {
+	font-size: 18px;
+}
+
+#promo-empresa-proposito {
+	margin-bottom: 2%;
+}
+
+#promo-empresa-proposito2 {
+	color: #ffffff;
+}
+
+
 /* Media Query para Iphone X */
 /* Portrait */
 @media only screen 
@@ -88,8 +124,15 @@ textarea {
   #sobre p, #sobre ul > li{
   	font-size: 20px;
   }
-  .sobre_button{
-  	padding-left: 35%;
+
+  .home p{
+  	margin-top: 3%;
+  	font-size: 26px;
+  }
+
+  .sobre-button{
+  	margin-top: 10%;
+  	padding-left: 30%;
   	padding-right: 10%;
   }
 
@@ -109,6 +152,23 @@ textarea {
   	margin-right: 20%;
   } 
 
+  .invite {
+  	font-size: 25px;
+  }
+
+  .proposito {
+  	margin-top: 3%;
+  }
+
+  #promo-empresa-proposito {
+  	font-size: 32px;
+
+  }
+
+  #promo-empresa-proposito2 {
+  	font-size: 20px;
+  }
+
 }
 
 /*Iphone 4, 5*/
@@ -119,36 +179,55 @@ textarea {
   and (orientation: portrait) {
   
   #sobre {
-  		padding: 5%;
-  	}
+  	padding: 5%;
+  }
 
-  	#sobre h2 {
-  		font-size: 35px;
-  	}
+  #sobre h2 {
+  	font-size: 35px;
+  }
 
-  	#sobre p, #sobre ul > li{
-  		font-size: 20px;
-  	}
-  	.sobre-button{
-  		padding-left: 35%;
-  		padding-right: 10%;
-  	}
+  #sobre p, #sobre ul > li{
+  	font-size: 20px;
+  }
+  
+  .sobre-button{
+  	margin-top: 10%;
+  	padding-left: 30%;
+  	padding-right: 10%;
+  }
 
-  	#promo-empresa {
-  		font-size: 35px;
-  	}
+  #promo-empresa {
+  	font-size: 35px;
+  }
 
-  	#empresas img {
-  		height: 100%;
-  		width: 100%;
-  	}
+  #empresas img {
+  	height: 100%;
+  	width: 100%;
+  }
 
-  	#empresas div {
-  		margin-top: 5%;
-  		margin-bottom: 5%;
-  		margin-left: 20%;
-  		margin-right: 20%;
-  	}
+  #empresas div {
+  	margin-top: 5%;
+  	margin-bottom: 5%;
+  	margin-left: 20%;
+  	margin-right: 20%;
+  } 
+
+  .invite {
+  	font-size: 25px;
+  }
+
+  .proposito {
+  	margin-top: 3%;
+  }
+
+  #promo-empresa-proposito {
+  	font-size: 32px;
+
+  }
+
+  #promo-empresa-proposito2 {
+  	font-size: 20px;
+  }
 
 }
 
@@ -159,36 +238,56 @@ textarea {
   and (-webkit-device-pixel-ratio: 3) 
   and (orientation: portrait) {
 
+  
   #sobre {
-  		padding: 5%;
-  	}
+  	padding: 5%;
+  }
 
-  	#sobre h2 {
-  		font-size: 35px;
-  	}
+  #sobre h2 {
+  	font-size: 35px;
+  }
 
-  	#sobre p, #sobre ul > li{
-  		font-size: 20px;
-  	}
-  	.sobre_button{
-  		padding-left: 35%;
-  		padding-right: 10%;
-  	}
+  #sobre p, #sobre ul > li{
+  	font-size: 20px;
+  }
+  
+  .sobre-button{
+  	margin-top: 10%;
+  	padding-left: 30%;
+  	padding-right: 10%;
+  }
 
-  	#promo-empresa {
-  		font-size: 35px;
-  	}
+  #promo-empresa {
+  	font-size: 35px;
+  }
 
-  	#empresas img {
-  		height: 100%;
-  		width: 100%;
-  	}
+  #empresas img {
+  	height: 100%;
+  	width: 100%;
+  }
 
-  	#empresas div {
-  		margin-top: 5%;
-  		margin-bottom: 5%;
-  		margin-left: 20%;
-  		margin-right: 20%;
-  	}
+  #empresas div {
+  	margin-top: 5%;
+  	margin-bottom: 5%;
+  	margin-left: 20%;
+  	margin-right: 20%;
+  } 
+
+  .invite {
+  	font-size: 25px;
+  }
+
+  .proposito {
+  	margin-top: 3%;
+  }
+
+  #promo-empresa-proposito {
+  	font-size: 32px;
+
+  }
+
+  #promo-empresa-proposito2 {
+  	font-size: 20px;
+  }
 
 }
