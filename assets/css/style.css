@@ -128,6 +128,11 @@ textarea {
 	padding: 2%;
 }
 
+.noticia p {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
 .news-text h3, .news-text p {
 	color: black;
 }
@@ -219,8 +224,13 @@ textarea {
   }
 
   .thumb-noticia {
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
+	margin-bottom: 5%;
+  }
+
+  .noticia > div {
+  	padding: 5%;
   }
 
 
@@ -285,8 +295,9 @@ textarea {
   }
 
   .thumb-noticia {
-  	width: 250px;
-  	height: 250px;
+  	width: 200px;
+  	height: 200px;
+  	margin-bottom: 5%;
   }
 
 }
@@ -351,8 +362,9 @@ textarea {
   }
 
   .thumb-noticia {
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
+	margin-bottom: 5%;
   }
 
 }
