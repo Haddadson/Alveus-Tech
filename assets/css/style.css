@@ -31,6 +31,10 @@
 	margin-top: 5%;
 }
 
+.invite {
+	font-size: 32px;
+}
+
 .logo {
 	width: 30px;
 	height: 30px;
@@ -102,6 +106,27 @@ textarea {
 
 #promo-empresa-proposito2 {
 	color: #ffffff;
+}
+
+.noticia {
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.noticia:first-child {
+	margin-top: 0%;
+}
+
+.noticia > div {
+	padding: 2%;
+}
+
+.news-text h3, .news-text p {
+	color: black;
+}
+
+.leia-mais {
+	font-size: 0.8em;
 }
 
 
