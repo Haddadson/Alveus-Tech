@@ -78,6 +78,9 @@ nav .container {
 	margin: 5%;
 }
 
+#div-ambiente-img {
+	padding-top: 8%;
+}
 
 textarea {
 	resize: none;
