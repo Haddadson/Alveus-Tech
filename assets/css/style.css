@@ -112,7 +112,7 @@ textarea {
 }
 
 .thumb-noticia {
-	width: 152px;
+	width: 152px;	
 }
 
 .noticia {
@@ -153,9 +153,6 @@ textarea {
 	text-align: justify;
 	text-justify: inter-word;
 }
-
-
-
 
 /* Media Query para Iphone X */
 /* Portrait */
