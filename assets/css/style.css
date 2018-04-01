@@ -132,6 +132,20 @@ textarea {
 	font-size: 0.8em;
 }
 
+.manchete {
+	margin-top: 5%;
+}
+
+.manchete > p{
+	font-size: 20px;
+}
+
+.img-noticia {
+	margin-top: 3%;
+	margin-bottom: 3%;
+
+}
+
 
 /* Media Query para Iphone X */
 /* Portrait */
@@ -245,7 +259,7 @@ textarea {
   }
 
   .proposito {
-  	margin-top: 3%;
+  	margin-top: 5%;
   }
 
   #promo-empresa-proposito {
