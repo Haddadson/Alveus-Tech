@@ -101,6 +101,8 @@ textarea {
 
 .proposito p {
 	font-size: 18px;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 #img-sobre {
@@ -109,6 +111,8 @@ textarea {
 
 .txt-proposito {
 	font-size: 18px;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 #promo-empresa-proposito {
@@ -240,7 +244,6 @@ textarea {
   .noticia > div {
   	padding: 5%;
   }
-
 
 }
 
