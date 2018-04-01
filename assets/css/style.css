@@ -96,6 +96,7 @@ textarea {
 
 .proposito h2 {
 	font-size: 40px;
+	margin-bottom: 2%;
 
 }
 
@@ -226,6 +227,10 @@ textarea {
   	margin-top: 3%;
   }
 
+  .proposito h2{
+  	margin-bottom: 10%;
+  }
+
   #promo-empresa-proposito {
   	font-size: 32px;
 
@@ -254,62 +259,76 @@ textarea {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
   
-  #sobre {
-  	padding: 5%;
-  }
+ 
+   #sobre {
+   	padding: 5%;
+   }
 
-  #sobre h2 {
-  	font-size: 35px;
-  }
+   #sobre h2 {
+   	font-size: 35px;
+   }
 
-  #sobre p, #sobre ul > li{
-  	font-size: 20px;
-  }
-  
-  .sobre-button{
-  	margin-top: 10%;
-  	padding-left: 30%;
-  	padding-right: 10%;
-  }
+   #sobre p, #sobre ul > li{
+   	font-size: 20px;
+   }
 
-  #promo-empresa {
-  	font-size: 35px;
-  }
+   .home p{
+   	margin-top: 3%;
+   	font-size: 26px;
+   }
 
-  #empresas img {
-  	height: 100%;
-  	width: 100%;
-  }
+   .sobre-button{
+   	margin-top: 10%;
+   	padding-left: 30%;
+   	padding-right: 10%;
+   }
 
-  #empresas div {
-  	margin-top: 5%;
-  	margin-bottom: 5%;
-  	margin-left: 20%;
-  	margin-right: 20%;
-  } 
+   #promo-empresa {
+   	font-size: 35px;
+   }
 
-  .invite {
-  	font-size: 25px;
-  }
+   #empresas img {
+   	height: 100%;
+   	width: 100%;
+   }
 
-  .proposito {
-  	margin-top: 5%;
-  }
+   #empresas div {
+   	margin-top: 5%;
+   	margin-bottom: 5%;
+   	margin-left: 20%;
+   	margin-right: 20%;
+   } 
 
-  #promo-empresa-proposito {
-  	font-size: 32px;
+   .invite {
+   	font-size: 25px;
+   }
 
-  }
+   .proposito {
+   	margin-top: 3%;
+   }
 
-  #promo-empresa-proposito2 {
-  	font-size: 20px;
-  }
+   .proposito h2{
+   	margin-bottom: 10%;
+   }
 
-  .thumb-noticia {
-  	width: 200px;
-  	height: 200px;
-  	margin-bottom: 5%;
-  }
+   #promo-empresa-proposito {
+   	font-size: 32px;
+
+   }
+
+   #promo-empresa-proposito2 {
+   	font-size: 20px;
+   }
+
+   .thumb-noticia {
+ 	width: 200px;
+ 	height: 200px;
+ 	margin-bottom: 5%;
+   }
+
+   .noticia > div {
+   	padding: 5%;
+   }
 
 }
 
@@ -321,61 +340,75 @@ textarea {
   and (orientation: portrait) {
 
   
-  #sobre {
-  	padding: 5%;
-  }
+ 
+   #sobre {
+   	padding: 5%;
+   }
 
-  #sobre h2 {
-  	font-size: 35px;
-  }
+   #sobre h2 {
+   	font-size: 35px;
+   }
 
-  #sobre p, #sobre ul > li{
-  	font-size: 20px;
-  }
-  
-  .sobre-button{
-  	margin-top: 10%;
-  	padding-left: 30%;
-  	padding-right: 10%;
-  }
+   #sobre p, #sobre ul > li{
+   	font-size: 20px;
+   }
 
-  #promo-empresa {
-  	font-size: 35px;
-  }
+   .home p{
+   	margin-top: 3%;
+   	font-size: 26px;
+   }
 
-  #empresas img {
-  	height: 100%;
-  	width: 100%;
-  }
+   .sobre-button{
+   	margin-top: 10%;
+   	padding-left: 30%;
+   	padding-right: 10%;
+   }
 
-  #empresas div {
-  	margin-top: 5%;
-  	margin-bottom: 5%;
-  	margin-left: 20%;
-  	margin-right: 20%;
-  } 
+   #promo-empresa {
+   	font-size: 35px;
+   }
 
-  .invite {
-  	font-size: 25px;
-  }
+   #empresas img {
+   	height: 100%;
+   	width: 100%;
+   }
 
-  .proposito {
-  	margin-top: 3%;
-  }
+   #empresas div {
+   	margin-top: 5%;
+   	margin-bottom: 5%;
+   	margin-left: 20%;
+   	margin-right: 20%;
+   } 
 
-  #promo-empresa-proposito {
-  	font-size: 32px;
+   .invite {
+   	font-size: 25px;
+   }
 
-  }
+   .proposito {
+   	margin-top: 3%;
+   }
 
-  #promo-empresa-proposito2 {
-  	font-size: 20px;
-  }
+   .proposito h2{
+   	margin-bottom: 10%;
+   }
 
-  .thumb-noticia {
-	width: 200px;
-	height: 200px;
-	margin-bottom: 5%;
-  }
+   #promo-empresa-proposito {
+   	font-size: 32px;
+
+   }
+
+   #promo-empresa-proposito2 {
+   	font-size: 20px;
+   }
+
+   .thumb-noticia {
+ 	width: 200px;
+ 	height: 200px;
+ 	margin-bottom: 5%;
+   }
+
+   .noticia > div {
+   	padding: 5%;
+   }
 
 }
