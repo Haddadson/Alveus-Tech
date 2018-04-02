@@ -58,9 +58,8 @@ nav .container {
 	padding-bottom: 1%;
 }
 
-#navbarResponsive > ul > li{
-	margin-left: 5%;
-	margin-right: 5%;
+#navbarResponsive > ul > li {
+  margin-right: 3%;
 }
 
 #sobre {
@@ -103,7 +102,6 @@ textarea {
 .proposito p {
 	font-size: 18px;
 	text-align: justify;
-	text-justify: inter-word;
 }
 
 #img-sobre {
@@ -113,7 +111,6 @@ textarea {
 .txt-proposito {
 	font-size: 18px;
 	text-align: justify;
-	text-justify: inter-word;
 }
 
 #promo-empresa-proposito {
@@ -143,7 +140,6 @@ textarea {
 
 .noticia p {
 	text-align: justify;
-	text-justify: inter-word;
 }
 
 .news-text h3, .news-text p {
@@ -169,7 +165,6 @@ textarea {
 
 .corpo > p {
 	text-align: justify;
-	text-justify: inter-word;
 }
 
 /* Media Query para Iphone X */
@@ -250,6 +245,22 @@ textarea {
   	padding: 5%;
   }
 
+  .corpo > p {
+    font-size: 18px;
+  }
+
+  .resumo {
+    font-size: 20px;  
+  }
+
+  .blog-intro {
+   font-size: 22px !important;
+  }
+
+  .leia-mais{
+    font-size: 1.0em !important;    
+  }
+
 }
 
 /*Iphone 4, 5*/
@@ -321,13 +332,29 @@ textarea {
    }
 
    .thumb-noticia {
- 	width: 200px;
- 	height: 200px;
- 	margin-bottom: 5%;
+  	width: 200px;
+ 	  height: 200px;
+   	margin-bottom: 5%;
    }
 
    .noticia > div {
    	padding: 5%;
+   }
+
+   .corpo > p {
+     font-size: 18px;
+   }
+
+   .resumo {
+     font-size: 20px;  
+   }
+
+   .blog-intro {
+    font-size: 22px !important;
+   }
+
+   .leia-mais{
+    font-size: 1.0em !important;    
    }
 
 }
@@ -402,13 +429,28 @@ textarea {
    }
 
    .thumb-noticia {
- 	width: 200px;
- 	height: 200px;
- 	margin-bottom: 5%;
+ 	  width: 200px;
+   	height: 200px;
+ 	  margin-bottom: 5%;
    }
 
    .noticia > div {
    	padding: 5%;
    }
 
+   .corpo > p {
+    font-size: 18px;
+   }
+
+   .resumo {
+     font-size: 20px;  
+   }
+
+   .blog-intro {
+    font-size: 22px !important;
+   }
+
+   .leia-mais{
+    font-size: 1.0em !important;    
+   }
 }
