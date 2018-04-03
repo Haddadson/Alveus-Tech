@@ -236,9 +236,9 @@ textarea {
   }
 
   .thumb-noticia {
-	width: 200px;
-	height: 200px;
-	margin-bottom: 5%;
+    width: 350px;
+    height: 250px;
+    margin-bottom: 5%;
   }
 
   .noticia > div {
@@ -247,14 +247,6 @@ textarea {
 
   .corpo > p {
     font-size: 18px;
-  }
-
-  .resumo {
-    font-size: 20px;  
-  }
-
-  .blog-intro {
-   font-size: 22px !important;
   }
 
   .leia-mais{
@@ -271,91 +263,82 @@ textarea {
   and (orientation: portrait) {
   
  
-   #sobre {
+  #sobre {
    	padding: 5%;
-   }
+  }
 
-   #sobre h2 {
+  #sobre h2 {
    	font-size: 35px;
-   }
+  }
 
-   #sobre p, #sobre ul > li{
+  #sobre p, #sobre ul > li{
    	font-size: 20px;
-   }
+  }
 
-   .home p{
+  .home p{
    	margin-top: 3%;
    	font-size: 26px;
-   }
+  }
 
-   .sobre-button{
+  .sobre-button{
    	margin-top: 10%;
    	padding-left: 30%;
    	padding-right: 10%;
-   }
+  }
 
-   #promo-empresa {
+  #promo-empresa {
    	font-size: 35px;
-   }
+  }
 
-   #empresas img {
+  #empresas img {
    	height: 100%;
-   	width: 100%;
-   }
+  	width: 100%;
+  }
 
-   #empresas div {
+  #empresas div {
    	margin-top: 5%;
    	margin-bottom: 5%;
    	margin-left: 20%;
    	margin-right: 20%;
-   } 
+  } 
 
-   .invite {
+  .invite {
    	font-size: 25px;
-   }
+  }
 
-   .proposito {
+  .proposito {
    	margin-top: 3%;
-   }
+  }
 
-   .proposito h2{
+  .proposito h2{
    	margin-bottom: 10%;
-   }
+  }
 
-   #promo-empresa-proposito {
+  #promo-empresa-proposito {
    	font-size: 32px;
+  }
 
-   }
-
-   #promo-empresa-proposito2 {
+  #promo-empresa-proposito2 {
    	font-size: 20px;
-   }
+  }
 
-   .thumb-noticia {
-  	width: 200px;
- 	  height: 200px;
+  .thumb-noticia {
+    width: 350px;
+    height: 250px;
    	margin-bottom: 5%;
-   }
+  }
 
-   .noticia > div {
+  .noticia > div {
    	padding: 5%;
-   }
+  }
 
-   .corpo > p {
+  .corpo > p {
      font-size: 18px;
-   }
+  }
 
-   .resumo {
-     font-size: 20px;  
-   }
-
-   .blog-intro {
-    font-size: 22px !important;
-   }
-
-   .leia-mais{
+  .leia-mais{
     font-size: 1.0em !important;    
-   }
+  }
 
 }
 
@@ -368,89 +351,80 @@ textarea {
 
   
  
-   #sobre {
-   	padding: 5%;
-   }
+  #sobre {
+  	padding: 5%;
+  }
 
-   #sobre h2 {
+  #sobre h2 {
    	font-size: 35px;
-   }
+  }
 
-   #sobre p, #sobre ul > li{
+  #sobre p, #sobre ul > li{
    	font-size: 20px;
-   }
+  }
 
-   .home p{
+  .home p{
    	margin-top: 3%;
    	font-size: 26px;
-   }
+  }
 
-   .sobre-button{
+  .sobre-button{
    	margin-top: 10%;
    	padding-left: 30%;
    	padding-right: 10%;
-   }
+  }
 
-   #promo-empresa {
+  #promo-empresa {
    	font-size: 35px;
-   }
+  }
 
-   #empresas img {
+  #empresas img {
    	height: 100%;
    	width: 100%;
-   }
+  }
 
-   #empresas div {
+  #empresas div {
    	margin-top: 5%;
    	margin-bottom: 5%;
    	margin-left: 20%;
    	margin-right: 20%;
-   } 
+  } 
 
-   .invite {
+  .invite {
    	font-size: 25px;
-   }
+  }
 
-   .proposito {
+  .proposito {
    	margin-top: 3%;
-   }
+  }
 
-   .proposito h2{
+  .proposito h2{
    	margin-bottom: 10%;
-   }
+  }
 
-   #promo-empresa-proposito {
+  #promo-empresa-proposito {
    	font-size: 32px;
+  }
 
-   }
-
-   #promo-empresa-proposito2 {
+  #promo-empresa-proposito2 {
    	font-size: 20px;
-   }
+  }
 
-   .thumb-noticia {
- 	  width: 200px;
-   	height: 200px;
+  .thumb-noticia {
+ 	  width: 350px;
+    height: 250px;
  	  margin-bottom: 5%;
-   }
+  }
 
-   .noticia > div {
+  .noticia > div {
    	padding: 5%;
-   }
+  }
 
-   .corpo > p {
+  .corpo > p {
     font-size: 18px;
-   }
+  }
 
-   .resumo {
-     font-size: 20px;  
-   }
-
-   .blog-intro {
-    font-size: 22px !important;
-   }
-
-   .leia-mais{
+  .leia-mais{
     font-size: 1.0em !important;    
-   }
+  }
 }
