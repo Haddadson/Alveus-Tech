@@ -17,7 +17,6 @@ $(document).ready(function(){
         $(".lista-navbar").append(html);
     }
     
-    console.log("C ta logado ? " + localStorage.getItem("isSignedIn"));
 	//Adiciona Listeners
 
 	// Intercepta o click do botão Logar
