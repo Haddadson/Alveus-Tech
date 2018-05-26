@@ -167,6 +167,19 @@ textarea {
 	text-align: justify;
 }
 
+.container > .login-card {
+
+}
+
+#login-title {
+  margin-top: 3%;
+}
+
+.login-button {
+  margin-top: 3%;
+  margin-left: 45%;
+}
+
 /* Media Query para Iphone X */
 /* Portrait */
 @media only screen 

@@ -31,7 +31,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto lista-navbar">
             <li class="nav-item">
               <a class="nav-link" href="../index.html">Home</a>
             </li>
@@ -45,10 +45,10 @@
               <a class="nav-link" href="contato.html">Contato
                 <span class="sr-only">(current)</span>
               </a>
-              <li class="nav-item">
+              <li class="nav-item remove-if-logged">
                 <a class="nav-link" href="cadastro.html">Cadastro</a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item active remove-if-logged">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
             </li>
@@ -60,18 +60,27 @@
     <!-- Content section -->
     <section id="home-2" class="parallax home img-fluid">
       <div class="container">
-        <div class="col-md-12 card">
+        <div class="login-card col-md-12 card">
+          <h1 id= "login-title" class="text-center text-dark">Faça seu login!</h1>
           <form id="contato">
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6 offset-md-3">
                 <label for="inputEmail">Email</label>
                 <input type="email" class="form-control" id="inputEmail" placeholder="Email">
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputEmail">Senha</label>
-                <input type="password" class="form-control" id="inputEmail" placeholder="Senha">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 offset-md-3">
+                <label for="inputSenha">Senha</label>
+                <input type="password" class="form-control" id="inputSenha" placeholder="Senha">
               </div>
-          </form>   
+            </div>
+            <div class="form-row">
+              <div class="login-button col-md-6">
+                <button id="btnLogin" class="btn-lg btn-dark">Login</button>
+              </div>
+            </div>      
+          </form>
         </div>
       </div>     
     </section>
