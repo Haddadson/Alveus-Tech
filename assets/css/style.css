@@ -14,6 +14,24 @@
 	padding-bottom: 15%;
 }
 
+#register{
+  background: 
+            linear-gradient(rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.86)), 
+            url('../img/register-img.jpg') center center no-repeat; 
+  background-size: cover;
+  padding-bottom: 15%;
+}
+
+#login {
+  background: 
+            linear-gradient(rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.86)), 
+            url('../img/login-img.jpg') center center no-repeat; 
+  background-size: cover;
+  padding-bottom: 15%;
+}
+
 #proposito-2{
 	background-image: url('../img/about-3.jpg');
 	padding-bottom: 15%;
@@ -167,18 +185,29 @@ textarea {
 	text-align: justify;
 }
 
-.container > .login-card {
-
-}
-
-#login-title {
+.form-title {
   margin-top: 3%;
 }
 
-.login-button {
+.form-button {
   margin-top: 3%;
   margin-left: 45%;
 }
+
+.form-text {
+  font-size: 1.3em !important;
+}
+
+#map-container {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
 
 /* Media Query para Iphone X */
 /* Portrait */
@@ -262,9 +291,23 @@ textarea {
     font-size: 18px;
   }
 
-  .leia-mais{
+  .leia-mais {
     font-size: 1.0em !important;    
   }
+
+  .form-title {
+    font-size: 2.8em !important;
+    margin-bottom: 5%;
+  }
+
+  .form-button {
+    margin-left: 30%;
+  }
+
+  .form-text {
+    font-size: 1.1em !important;
+  }
+
 
 }
 
@@ -353,6 +396,20 @@ textarea {
     font-size: 1.0em !important;    
   }
 
+  .form-title {
+    font-size: 2.8em !important;
+    margin-bottom: 5%;
+  }
+
+  .form-button {
+    margin-left: 30%;
+  }
+
+  .form-text {
+    font-size: 1.1em !important;
+  }
+
+
 }
 
 /*Galaxy S5*/
@@ -440,4 +497,18 @@ textarea {
   .leia-mais{
     font-size: 1.0em !important;    
   }
+
+  .form-title {
+    font-size: 2.8em !important;
+    margin-bottom: 5%;
+  }
+
+  .form-button {
+    margin-left: 30%;
+  }
+
+  .form-text {
+    font-size: 1.1em !important;
+  }
+
 }
