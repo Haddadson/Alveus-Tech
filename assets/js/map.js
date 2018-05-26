@@ -11,9 +11,9 @@ function initMap() {
      map: map,
      animation: google.maps.Animation.DROP, // drops marker in from top
      title: 'Alveus Tech', // title on hover over marker
-     icon: {
-       url: '../assets/img/alveus-map-marker.png',
-       scaledSize: new google.maps.Size(75, 120)
-     }
+     // icon: {
+     //   url: '../assets/img/alveus-map-marker.png',
+     //   scaledSize: new google.maps.Size(75, 120)
+     // }
    });
 }
