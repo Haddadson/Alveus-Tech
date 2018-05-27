@@ -26,7 +26,7 @@ function getObjectStore(store_name, mode) {
 
 function openDB() {
 	//Função para abrir o banco de dados
-	//bre o banco caso exista, caso não exista cria um novo
+	//Abre o banco caso exista, caso não exista cria um novo
     request = indexedDB.open(CONST_DB_APP);
 
     request.onerror = function (event) {
@@ -40,11 +40,11 @@ function openDB() {
             CONST_OS_USUARIO, { keyPath: 'email'});
 
         store.createIndex('nome', 'nome', { unique: true });
-        // store.createIndex('email', 'email', { unique: true });
         store.createIndex('senha', 'senha', { unique: false });
+        store.createIndex('tipoUsuario', 'tipoUsuario', { unique: false });
 
         // Carrega dados ficticios
-        loadDadosUsuarios(store);
+        //loadDadosUsuarios(store);
     };
 }
 
@@ -73,11 +73,38 @@ function logar(usuario, callback) {
 }
 
 
+function insertUsuario(usuario) {
+    let store = getObjectStore(CONST_OS_USUARIO, 'readwrite');
+    let req = store.add(usuario);
+
+    req.onsuccess = function (evt) {
+        console.log("Usuário inserido com sucesso.");
+        alert("Usuário inserido com sucesso");
+    };
+
+    req.onerror = function () {
+        console.error("Erro ao adicionar usuario: ", this.error);
+        alert("Erro ao adicionar usuario: " + this.error);
+    };
+}
+
+function contaUsuarios(callback) {
+    let store = getObjectStore(CONST_OS_USUARIO, 'readonly');
+    let req = store.count();
+    req.onsuccess = function (event) {
+        callback(event.target.result);
+    };
+    req.onerror = function (event) {
+        alert("Erro ao obter usuarios:" + event.target.errorCode);
+    };
+}
+
+
 function loadDadosUsuarios(store) {
     // Isso é o que os dados de nossos clientes será.
     const dadosUsuarios = [
-        { email: "gabriel.haddad15@gmail.com", nome: "Gabriel haddad", senha: "teste" },
-        { email: "TESTE.TESTE@gmail.com", nome: "TESTE TESTE", senha: "TESTE" }
+        { email: "gabriel.haddad15@gmail.com", nome: "Gabriel haddad", senha: "teste", tipoUsuario: 'adm' },
+        { email: "TESTE.TESTE@gmail.com", nome: "TESTE TESTE", senha: "TESTE", tipoUsuario: 'comum' }
     ];
 
     let req;

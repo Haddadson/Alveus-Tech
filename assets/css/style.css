@@ -76,8 +76,10 @@ nav .container {
 	padding-bottom: 1%;
 }
 
-#navbarResponsive > ul > li {
-  margin-right: 3%;
+.navbar-nav li a {
+    line-height: 50px;
+    height: 50px;
+    padding-top: 0;
 }
 
 #sobre {
@@ -196,6 +198,10 @@ textarea {
 
 .form-text {
   font-size: 1.3em !important;
+}
+
+#form-cadastro {
+  margin: 5%;
 }
 
 #map-container {
