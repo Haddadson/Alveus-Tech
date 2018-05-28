@@ -7,13 +7,15 @@ function initMap() {
    });
 
    var marker = new google.maps.Marker({
-     position: {lat: -19.9206343, lng: -43.9201332}, // lat/long of marker
+     position: {lat: -19.9206343, lng: -43.9201332}, //Latitude e longitude do marcador
      map: map,
-     animation: google.maps.Animation.DROP, // drops marker in from top
-     title: 'Alveus Tech', // title on hover over marker
-     // icon: {
-     //   url: '../assets/img/alveus-map-marker.png',
-     //   scaledSize: new google.maps.Size(75, 120)
-     // }
+     animation: google.maps.Animation.DROP, // Animaçã do marcador caindo de cima
+     title: 'Alveus Tech', // Título ao colocar o mouse em cima
+
+     //Marcador personalizado
+     icon: {
+       url: '../assets/img/alveus-map-marker.png',
+       scaledSize: new google.maps.Size(75, 120)
+     }
    });
 }
