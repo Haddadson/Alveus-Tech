@@ -56,11 +56,11 @@ $(document).ready(function(){
             if(qtdUsuarios == 0){
                 let usuario = { nome: campoNome, email: campoEmail, senha: campoSenha, tipoUsuario: 'adm'  };
                 insertUsuario(usuario);
-                window.location = 'login.html'
+                //window.location = 'login.html'
             } else if (qtdUsuarios > 0) {
                 let usuario = { nome: campoNome, email: campoEmail, senha: campoSenha, tipoUsuario: 'comum'  };
                 insertUsuario(usuario);
-                window.location = 'login.html'
+               // window.location = 'login.html'
             } else {
                 alert("Ocorreu um erro ao inserir o usuário!");
             }
