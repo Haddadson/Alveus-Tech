@@ -5,6 +5,16 @@
 	padding-bottom: 22%;
 }
 
+.thumb {
+  margin-top: 2%;
+  width: 150px;
+  height: 150px;
+}
+
+#blog-content {
+  margin: 5%;
+}
+
 #home {
 	background-image: url('../img/home.jpg');
 }

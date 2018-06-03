@@ -3,6 +3,7 @@ var db_app;
 // Constantes para nomes do banco de dados e ObjectStores
 const CONST_DB_APP = "alveus-tech.br.db_app";
 const CONST_OS_USUARIO = "alveus_tech";
+const CONST_OS_POSTS = "posts_alveus_tech";
 
 function initDBEngine() {
     // Na linha abaixo, você deve incluir os prefixos do navegador que você vai testar.
@@ -43,6 +44,15 @@ function openDB() {
         store.createIndex('senha', 'senha', { unique: false });
         store.createIndex('tipoUsuario', 'tipoUsuario', { unique: false });
 
+        let store2 = event.currentTarget.result.createObjectStore(
+            CONST_OS_POSTS, {keyPath: 'id', autoIncrement: true });
+
+        store2.createIndex('titulo', 'titulo', { unique: true });
+        store2.createIndex('subtitulo', 'subtitulo', { unique: false });
+        store2.createIndex('corpo', 'corpo', { unique: false });
+        store2.createIndex('img', 'img', { unique: false });
+        store2.createIndex('ativo', 'ativo', { unique: false });
+
         // Carrega dados ficticios
         //loadDadosUsuarios(store);
     };
@@ -55,7 +65,6 @@ function logar(usuario, callback) {
     let req = store.get(usuario.email);
 
     req.onsuccess = function (event) {
-    	console.log(req);
     	if(req.result == null) {
     	    alert("Login inválido! Usuário não encontrado!");
     	} else if(req.result.senha == usuario.senha){
@@ -111,4 +120,93 @@ function loadDadosUsuarios(store) {
     dadosUsuarios.forEach((element, index) => { req = store.add(element) });
     req.onsuccess = function (evt) { };
     req.onerror = function () { };
+}
+
+function insertPost(post){
+    let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
+    let req;
+    req = store.add(post);
+
+    req.onsuccess = function (evt) {
+        console.log("Postado com sucesso.");
+        alert("Postado com sucesso");
+    };
+
+    req.onerror = function () {
+        console.error("Erro ao postar", this.error);
+        alert("Ocorreu um erro ao postar: " + this.error);
+    };
+}
+
+function getAllPosts(callback) {
+    let store = getObjectStore(CONST_OS_POSTS, 'readonly');
+    let req = store.openCursor();
+    req.onsuccess = function (event) {
+        let cursor = event.target.result;
+
+        if (cursor) {
+            req = store.get(cursor.key);
+            req.onsuccess = function (event) {
+                let value = event.target.result;
+                callback(value);
+            }
+            cursor.continue();
+        }
+    };
+    req.onerror = function (event) {
+        alert11("Erro ao obter posts:", event.target.errorCode);
+    };
+}
+
+function deletePost(id) {
+    let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
+    if (typeof id == "string") { id = parseInt(id); }
+    let req = store.delete(id);
+    req.onsuccess = function (event) {
+        alert("Post removido com sucesso");
+    };
+    req.onerror = function (event) {
+        alert("Post não encontrado ou erro ao remover:", event.target.errorCode);
+    };
+}
+
+function desativarPost(id, post) {
+    let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
+    if (typeof id == "string") { id = parseInt(id); }
+    let req = store.get(id);
+    req.onsuccess = function (event) {
+        let record = req.result;
+        alert('antes ' + record.ativo);
+        if(record.ativo){
+            record.ativo = false;
+        } else {
+            record.ativo = true;
+        }
+
+        alert('dps ' + record.ativo);
+        let reqUpdate = store.put(record);
+        reqUpdate.onsuccess = function () {
+            alert("Post alterado com sucesso");
+        }
+        reqUpdate.onerror = function (event) {
+            alert("Erro ao alterar contato:", event.target.errorCode);
+        };
+    };
+    req.onerror = function (event) {
+        alert("Post não encontrado ou erro ao alterar:", event.target.errorCode);
+    };
+}
+
+function getPost(id, callback) {
+    let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
+    if (typeof id == "string") { id = parseInt(id); }
+    let req = store.get(id);
+
+    req.onsuccess = function (event) {
+        let record = req.result;
+        callback (record);
+    };
+    req.onerror = function (event) {
+        alert("Post não encontrado:", event.target.errorCode);
+    };
 }

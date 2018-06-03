@@ -61,36 +61,78 @@
     </nav>
 
     <!-- Content section -->
-    <article id="blog-content" class="py-4">
-      <section class="py-4">
-        <div class="container">
-          <div id="img-proposito" class="row">
-            <div class="proposito col-sm-12">
-              <h2>Blog</h2>
-              <p class="blog-intro">Aqui apresentamos as notícias mais recentes sobre a Alveus Tech.</p>
-              <p class="blog-intro">Fique por dentro de todas as novidades e eventos realizados em nosso ambiente</p><br>
-            </div>          
-          </div>
-      </section>
-
-      <!-- Content section -->
-      <section id="news" class="py-4">
-        
-
-      </section>
-
-      <section class="py-5">
-        <div class="container">
-          <hr>
-          <h1 class="invite">Quer trabalhar com a gente?</h1>
-          <p class="lead">Estamos com vagas abertas!</p>
-          <p>Entre em contato conosco para envio de currículos, dúvidas, sugestões e críticas.</p>
-           <div class="contato-button">
-                  <a href="contato.html" class="btn btn-dark">Contato</a>
-           </div>
+    <section class="py-4">
+      <div class="container">
+        <div id="img-proposito" class="row">
+          <div class="proposito col-sm-12">
+            <h2 class="text-center">Administração do Blog</h2>
+            <p class="blog-intro text-center">Gerencie as postagens do seu blog</p> 
+          </div>          
         </div>
+    </section>
+
+    <!-- Content section -->
+    <article id="cadastrar-postagen" class="py-4">
+      <section>
+        <div class="container">
+          <h3 class="text-center">Gerenciamento de post</h3>
+          <div class="col-md-12">
+            <form id="form-postagem">
+              <div class="form-row">
+                <div class="form-group col-md-12 ">
+                  <label for="inputId">ID</label>
+                  <input type="text" class="form-control" id="inputId" placeholder="ID">
+                  <small>Informe apenas para alterar/excluir</small>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12 ">
+                  <label for="inputTitulo">Título</label>
+                  <input type="text" class="form-control" id="inputTitulo" placeholder="Título">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputSubTitulo">SubTítulo</label>
+                  <input type="text" class="form-control" id="inputSubTitulo" placeholder="SubTítulo">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputCorpo">Corpo do Post</label>
+                  <textarea class="form-control" id="inputCorpo" rows = 4></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputFoto">Insira uma foto:</label>
+                  <input type="file" class="form-control-file" id="inputFoto">
+                  <div id="list"></div>
+                </div>  
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <button id="btnPostar" class="btn-lg btn-dark">Publicar</button>
+                  <button id="btnDelete" class="btn-lg btn-dark">Remover</button>
+                  <button id="btnDesativar" class="btn-lg btn-dark">Ativar/Desativar</button>
+                </div>
+              </div>
+              <hr>
+            </form>   
+          </div>
+        </div>  
+      </section>
+
+      <section>
+        <div class="container">
+          <h3 class="text-center">Listagem de posts</h3>
+          <div id="todos-posts" class="col-md-12">
+          </div>
+          <hr>
+        </div> 
       </section>
     </article>
+
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -106,7 +148,6 @@
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/database.js"></script>
     <script src="../assets/js/alveus-tech.js"></script>
-    <script src="../assets/js/blog.js"></script>
   </body>
 
 </html>
