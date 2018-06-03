@@ -85,7 +85,7 @@ $(document).ready(function(){
         let campoSubtitulo = $("#inputSubTitulo").val();
         let campoCorpo = $("#inputCorpo").val();
               
-        let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, img: imagem, ativo: true }
+        let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, ativo: true }
         insertPost(post);
         
         $("#form-postagem")[0].reset();
