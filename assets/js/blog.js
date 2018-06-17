@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	$(document).on('click', '#blog-post', function(e){
 		let post = this;
-		let idPost = post.childNodes[1].childNodes[1].firstChild.childNodes[1].firstChild.nodeValue;
-		getPost(idPost, function(post){
+		let idPost = post.childNodes[1].childNodes[3].firstChild.childNodes[1].firstChild.nodeValue;
+    getPost(idPost, function(post){
 			exibirPost(post);
 		});
 	});

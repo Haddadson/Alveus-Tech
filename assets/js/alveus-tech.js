@@ -172,21 +172,41 @@ function exibeTodosPosts() {
         } else {
             ativo = "Não";
         }
-        html += ` <section class="container noticia">
-                    <div class="col-md-12 card">
-                  <div class="row">
-                    <div class="col-md-2"><p>Id:`+post.id+`</p></div>
-                    <div class="col-md-8 news-text">
-                        <h3>`+post.titulo+`</h3>
-                        <p class="resumo">`+post.subtitulo+`</p>
-                        <p class="leia-mais">Clique para ler mais</p>
+        if(post.img == '' || post.img == null || typeof(post.img) == undefined ){
+
+            html += ` <section class="container noticia">
+                        <div class="col-md-12 card">
+                      <div class="row">
+                        <div class="col-md-2"><p class="text-dark text-center">Post sem imagem 😢</p></div>
+                        <div class="col-md-2"><p>Id:`+post.id+`</p></div>
+                        <div class="col-md-6 news-text">
+                            <h3>`+post.titulo+`</h3>
+                            <p class="resumo">`+post.subtitulo+`</p>
+                        </div>
+                        <div class="col-md-2>
+                            <p class="text-dark">Ativo: `+ativo+`</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-2>
-                        <p class="text-dark">Ativo: `+ativo+`</p>
+                    </section>`;
+        } else {
+            html += ` <section class="container noticia">
+                        <div class="col-md-12 card">
+                      <div class="row">
+                        <div class="col-md-2"><img class='img-thumbnail rounded' src='`+post.img+`'></div>
+                        <div class="col-md-2"><p>Id:`+post.id+`</p></div>
+                        <div class="col-md-6 news-text">
+                            <h3>`+post.titulo+`</h3>
+                            <p class="resumo">`+post.subtitulo+`</p>
+                        </div>
+                        <div class="col-md-2>
+                            <p class="text-dark">Ativo: `+ativo+`</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                </section>`;
+                    </section>`; 
+        }
+
         $("#todos-posts").append(html);
     });
 }
@@ -199,8 +219,9 @@ function exibePostsAtivos() {
             html += ` <section class="container noticia">
                         <div id="blog-post" class="col-md-12 card">
                           <div class="row">
-                          <div class="text-center col-md-1"><p>Id: <span class = 'text-dark'>`+post.id+`</span></p></div>
-                            <div class="col-md-11 news-text">
+                          <div class="col-md-2"><img class='img-thumbnail rounded' src='`+post.img+`'></div>
+                          <div class="text-center col-md-2"><p>Id: <span class = 'text-dark'>`+post.id+`</span></p></div>
+                            <div class="col-md-8 news-text">
                               <a href="#">
                                 <h3>`+post.titulo+`</h3>
                                 <p class="resumo">`+post.subtitulo+`</p>
@@ -211,6 +232,10 @@ function exibePostsAtivos() {
                         </div>
                        </section>`;
         }
+        if(html == ''){
+            html += '<p>Nenhum post encontrado 😢</p>'
+        }
+ 
         $("#news").append(html);
     });    
 }
