@@ -83,7 +83,7 @@ function exibirPost(post){
         console.log(comentario);
         comentar(comentario);
 
-        $("#comentario").val() = '';
+        $("#comentario").removeAttr('value');
       }
 
     });

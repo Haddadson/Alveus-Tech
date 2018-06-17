@@ -61,7 +61,7 @@ function openDB() {
         store3.createIndex('autor', 'autor', { unique: false });
         store3.createIndex('data', 'data', { unique: false });
         store3.createIndex('dataSistema', 'dataSistema', { unique: false });
-        store3.createIndex('postRelacionado', 'postRelacionado', { unique: true });
+        store3.createIndex('postRelacionado', 'postRelacionado', { unique: false });
         
         // Carrega dados ficticios
         //loadDadosUsuarios(store);
