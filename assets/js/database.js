@@ -236,3 +236,18 @@ function comentar(comentario){
         alert("Ocorreu um erro ao postar: " + this.error);
     };
 }
+
+function getComentarios(callback) {
+    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readwrite');
+    var cursorRequest = store.index('dataSistema').openCursor(null, 'next'); 
+    cursorRequest.onsuccess = function(event) {
+        var cursor = event.target.result;
+        if(cursor) {
+            callback (cursor.value);
+            cursor.continue ();
+        }
+    };
+    cursorRequest.onerror = function (event) {
+        alert("Post não encontrado:", event.target.errorCode);
+    };
+}
