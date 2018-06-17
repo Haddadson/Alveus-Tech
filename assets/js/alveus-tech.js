@@ -1,3 +1,5 @@
+var imagemJS;
+
 $(document).ready(function(){
 	//Inicia o banco de dados assim que a página é carregada
 	initDBEngine();
@@ -76,6 +78,7 @@ $(document).ready(function(){
             }
         });
     });
+
     $("#btnPostar").click(function () {
         if (!$('#form-postagem')[0].checkValidity()) {
             alert("Preencha o formulário corretamente.");
@@ -84,9 +87,24 @@ $(document).ready(function(){
         let campoTitulo = $("#inputTitulo").val();
         let campoSubtitulo = $("#inputSubTitulo").val();
         let campoCorpo = $("#inputCorpo").val();
-              
-        let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, ativo: true }
-        insertPost(post);
+
+        let tgt = document.getElementById('inputFoto');
+        let files = tgt.files;
+
+        // FileReader support
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, img: fr.result , ativo: true };
+                console.log("Inseriu com img");
+                insertPost(post);
+            }
+            fr.readAsDataURL(files[0]);
+        } else {
+            let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, ativo: true };
+            console.log("Inseriu sem img");
+            insertPost(post);
+        }
         
         $("#form-postagem")[0].reset();
         setTimeout(exibeTodosPosts, 200);   
@@ -123,8 +141,11 @@ $(document).ready(function(){
     });
 
     $('#inputFoto').change(function(evt){
-        handleFileSelect(evt);
+        carregaImagem(evt);
     });
+
+
+
 
     setTimeout(exibeTodosPosts, 200);
     setTimeout(exibePostsAtivos, 200);
@@ -195,47 +216,19 @@ function exibePostsAtivos() {
 }
 
 
-function handleFileSelect(evt) {
-  $("#list").html('');
-  var files = evt.target.files; // FileList object
+function carregaImagem(evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
 
-  // Loop through the FileList and render image files as thumbnails.
-  for (var i = 0, f; f = files[i]; i++) {
-
-    // Only process image files.
-    if (!f.type.match('image.*')) {
-      continue;
+    // FileReader support
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById('outImage').src = fr.result;
+            if (document.getElementById('outImage').src != '') {
+                $('#outImage').removeClass('not-show');
+            }
+        }
+        fr.readAsDataURL(files[0]);
     }
-
-    var reader = new FileReader();
-
-    // Closure to capture the file information.
-    reader.onload = (function(theFile) {
-      return function(e) {
-        // Render thumbnail.
-        var span = document.createElement('span');
-        span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                          '" title="', escape(theFile.name), '"/>'].join('');
-        document.getElementById('list').insertBefore(span, null);
-      };
-    })(f);
-
-    // Read in the image file as a data URL.
-    //reader.readAsDataURL(f);
-    reader.readAsDataURL(f);
-  }
 }
-
-// function carregarArquivo(){
-//     var file = $('#inputFoto')[0].files[0];
-//     var fileReader = new FileReader();
-//     fileReader.onloadend = function (e) {
-//         var arrayBuffer = e.target.result;
-//         blobUtil.arrayBufferToBlob(arrayBuffer, blob).then(function (blob) {
-//           console.log('here is a blob', blob);
-//           console.log('its size is', blob.size);
-//           console.log('its type is', blob.type);
-//         }).catch(console.log.bind(console));
-//       };
-//     fileReader.readAsArrayBuffer(file);
-// }

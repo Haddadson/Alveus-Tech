@@ -5,10 +5,14 @@
 	padding-bottom: 22%;
 }
 
-.thumb {
+#outImage {
   margin-top: 2%;
   width: 150px;
   height: 150px;
+}
+
+.not-show {
+  display: none;
 }
 
 #blog-content {
