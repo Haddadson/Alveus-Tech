@@ -4,6 +4,7 @@ var db_app;
 const CONST_DB_APP = "alveus-tech.br.db_app";
 const CONST_OS_USUARIO = "alveus_tech";
 const CONST_OS_POSTS = "posts_alveus_tech";
+const CONST_OS_COMENTARIOS = "comentarios_alveus_tech";
 
 function initDBEngine() {
     // Na linha abaixo, você deve incluir os prefixos do navegador que você vai testar.
@@ -53,6 +54,15 @@ function openDB() {
         store2.createIndex('img', 'img', { unique: false });
         store2.createIndex('ativo', 'ativo', { unique: false });
 
+        let store3 = event.currentTarget.result.createObjectStore(
+            CONST_OS_COMENTARIOS, {keyPath: 'id', autoIncrement: true });
+
+        store3.createIndex('conteudo', 'conteudo', { unique: false });
+        store3.createIndex('autor', 'autor', { unique: false });
+        store3.createIndex('data', 'data', { unique: false });
+        store3.createIndex('dataSistema', 'dataSistema', { unique: false });
+        store3.createIndex('postRelacionado', 'postRelacionado', { unique: true });
+        
         // Carrega dados ficticios
         //loadDadosUsuarios(store);
     };
@@ -208,5 +218,21 @@ function getPost(id, callback) {
     };
     req.onerror = function (event) {
         alert("Post não encontrado:", event.target.errorCode);
+    };
+}
+
+function comentar(comentario){
+    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readwrite');
+    let req;
+    req = store.add(comentario);
+
+    req.onsuccess = function (evt) {
+        console.log("Postado com sucesso.");
+        alert("Postado com sucesso");
+    };
+
+    req.onerror = function () {
+        console.error("Erro ao postar", this.error);
+        alert("Ocorreu um erro ao postar: " + this.error);
     };
 }

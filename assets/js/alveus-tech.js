@@ -90,24 +90,29 @@ $(document).ready(function(){
 
         let tgt = document.getElementById('inputFoto');
         let files = tgt.files;
-
+        let postou = false;
         // FileReader support
         if (FileReader && files && files.length) {
-            var fr = new FileReader();
-            fr.onload = function () {
-                let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, img: fr.result , ativo: true };
-                console.log("Inseriu com img");
-                insertPost(post);
+            var reader = new FileReader();
+            reader.onload = function () {
+                let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, img: reader.result , ativo: true };
+                setTimeout(insertPost(post), 2500);
+                postou = true;
             }
-            fr.readAsDataURL(files[0]);
+
+            for(var i=0; i < files.length; i++){
+               reader.readAsDataURL(files[i]);
+            }
         } else {
             let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, ativo: true };
             console.log("Inseriu sem img");
             insertPost(post);
+            postou = true;
         }
+
         
-        $("#form-postagem")[0].reset();
-        setTimeout(exibeTodosPosts, 200);   
+         $("#form-postagem")[0].reset();
+         setTimeout(exibeTodosPosts, 1000);   
  
     });
 
@@ -244,7 +249,6 @@ function exibePostsAtivos() {
 function carregaImagem(evt) {
     var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
-
     // FileReader support
     if (FileReader && files && files.length) {
         var fr = new FileReader();
@@ -254,6 +258,8 @@ function carregaImagem(evt) {
                 $('#outImage').removeClass('not-show');
             }
         }
-        fr.readAsDataURL(files[0]);
+        for(var i=0;i<files.length;i++){
+           fr.readAsDataURL(files[i]);
+        }
     }
 }

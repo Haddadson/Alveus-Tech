@@ -77,6 +77,9 @@
 	margin-right: 5%;
 }
 
+.post-comentario {
+  margin-top: 5%;
+}
 
 .home h1{
 	color:#ffffff;
@@ -229,6 +232,10 @@ textarea {
 #map {
   height: 400px;
   width: 100%;
+}
+
+#btnPostarComentario {
+  margin-top: 3%;
 }
 
 

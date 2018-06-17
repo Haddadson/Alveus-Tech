@@ -5,8 +5,8 @@ $(document).ready(function(){
     getPost(idPost, function(post){
 			exibirPost(post);
 		});
-	});
 
+	});
 });
 
 function exibirPost(post){
@@ -31,13 +31,60 @@ function exibirPost(post){
               <img class="img-fluid img-noticia allign-center" src="`+post.img+`">
             </div>
           </div>
-          <div class="row">
+          <div class="row post-comentario">
             <div class="col-md-12">
-              <label for="comentario">Deixe um comentário!/label>
+              <label for="comentario">Deixe um comentário!</label>
               <textarea class="form-control" id="comentario" rows = 2></textarea>
             </div>
           </div>
           <button id="btnPostarComentario" class="btn-lg btn-dark">Comentar</button>
+          <hr>
           `;
     $("#blog-content").append(html);
+
+    $('#blog-content').on('click', '#btnPostarComentario', function(){
+      let campoComentario = $("#comentario").val();
+
+      if (campoComentario != null && campoComentario != '' && typeof(campoComentario) != undefined) {
+        let data = new Date();
+        let dd = data.getDate();
+        let mm = data.getMonth()+1; //Janeiro é 0!
+        let yyyy = data.getFullYear();
+        let horas = data.getHours();
+        let min = data.getMinutes()+1; //Janeiro é 0!
+        let sec = data.getSeconds();
+        let autor = getUsuarioLogado();
+        let dataSistema = Date.now();
+
+        if(dd<10) {
+            dd = '0'+dd;
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm;
+        } 
+
+        if(horas<10) {
+            horas = '0'+horas;
+        } 
+
+        if(min<10) {
+            min = '0'+min;
+        } 
+
+        if(sec<10) {
+            sec = '0'+sec;
+        } 
+
+        data = horas + ':' + min + ':' + sec + ' ' + mm + '/' + dd + '/' + yyyy;
+
+        let comentario = {conteudo: campoComentario, data: data, autor: autor.nome, dataSistema: dataSistema, postRelacionado: post.id};
+        console.log(comentario);
+        comentar(comentario);
+
+        $("#comentario").val() = '';
+      }
+
+    });
+
 }
