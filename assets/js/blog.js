@@ -39,6 +39,7 @@ function exibirPost(post){
           </div>
           <button id="btnPostarComentario" class="btn-lg btn-dark">Comentar</button>
           <hr>
+          <div id="area-comentarios"></div>
           `;
     $("#blog-content").append(html);
 

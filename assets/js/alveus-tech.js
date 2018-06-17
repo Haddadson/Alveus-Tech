@@ -96,7 +96,7 @@ $(document).ready(function(){
             var reader = new FileReader();
             reader.onload = function () {
                 let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, img: reader.result , ativo: true };
-                setTimeout(insertPost(post), 2500);
+                insertPost(post);
                 postou = true;
             }
 
@@ -110,6 +110,9 @@ $(document).ready(function(){
             postou = true;
         }
 
+        // if(!postou){
+        //     alert("Ocorreu um erro na postagem. Erro desconhecido");
+        // }
         
          $("#form-postagem")[0].reset();
          setTimeout(exibeTodosPosts, 1000);   
@@ -238,7 +241,7 @@ function exibePostsAtivos() {
                        </section>`;
         }
         if(html == ''){
-            html += '<p>Nenhum post encontrado 😢</p>'
+            html += '<p class="text-dark">Nenhum post encontrado 😢</p>'
         }
  
         $("#news").append(html);
