@@ -24,7 +24,7 @@ Inicialmente, é necessário crie um layout para o site utilizando as tags semâ
 
 - Felipe Scur Silveira dos Reis
 - Gabriel Henrique Souza Haddad Campos
-- Ítalo Rocha de Menezes
+- Talita Arantes Melo
 
 ### Matérias
 

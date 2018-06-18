@@ -1,17 +1,17 @@
 $(document).ready(function(){
-	$(document).on('click', '#blog-post', function(e){
-		let post = this;
-		let idPost = post.childNodes[1].childNodes[3].firstChild.childNodes[1].firstChild.nodeValue;
+  $(document).on('click', '#blog-post', function(e){
+    let post = this;
+    let idPost = post.childNodes[1].childNodes[3].firstChild.childNodes[1].firstChild.nodeValue;
     getPost(idPost, function(post){
-			exibirPost(post);
-		});
+      exibirPost(post);
+    });
 
-	});
+  });
 });
 
 function exibirPost(post){
-	$("#blog-content").html('');
-	let html = '';
+  $("#blog-content").html('');
+  let html = '';
   let usuario = getUsuarioLogado();
   if(usuario.nome == null) {
       html += `<div class="back-button">
@@ -40,7 +40,7 @@ function exibirPost(post){
         $("#blog-content").append(html);
   } else {
 
-    	html += `<div class="back-button">
+      html += `<div class="back-button">
                 <a id="back" href="blog.html" class="btn btn-dark">← Voltar para o blog</a>
               </div>
               <div class="row">
@@ -55,9 +55,13 @@ function exibirPost(post){
                 </div>
               </div>
               <div class="row">
-              	<div class="col-sm-3">
+                <div class="col-sm-3">
                   <img class="img-noticia allign-center" src="`+post.img+`">
                 </div>
+              </div>
+              <div class="like-button"> //AQUI ESTA INSERIDO O BOTAO DE LIKE
+              <button>Like</button>
+               <span class="count"></span>
               </div>
               <div class="row post-comentario">
                 <div class="col-md-12">
@@ -72,6 +76,14 @@ function exibirPost(post){
               `;
         $("#blog-content").append(html);
 
+
+        //BOTAO DE LIKE
+    $(".like-button").on("click", function(e){
+      var $counter = $(this).find(".count");
+      var count = $counter.text() | 0; //corose current count to an int
+      $counter.text(count + 1);//set new count
+  });
+  
         $('#blog-content').on('click', '#btnPostarComentario', function(){
           let campoComentario = $("#comentario").val();
 
@@ -159,13 +171,10 @@ function exibirComentarios(listaDeComentarios) {
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-10 news-text">
+                    <div class="col-md-12 news-text">
                         <br><p class="resumo">`+listaDeComentarios[i].conteudo+`</p>
                     </div>
-                    <div class="col-md-2">
-                      <br><p class="text-dark">Curtir    <img src="../assets/img/thumbs-up-icon.png" class="like-icon"></p>
-                    </div>
-                  </div>
+                   </div>
                 </div>
               </section>`;
     $("#area-comentarios").append(html);
