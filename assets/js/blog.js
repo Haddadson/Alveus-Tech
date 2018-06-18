@@ -3,7 +3,6 @@ $(document).ready(function(){
 		let post = this;
 		let idPost = post.childNodes[1].childNodes[3].firstChild.childNodes[1].firstChild.nodeValue;
     getPost(idPost, function(post){
-      console.log(post);
 			exibirPost(post);
 		});
 
@@ -14,7 +13,6 @@ function exibirPost(post){
 	$("#blog-content").html('');
 	let html = '';
   let usuario = getUsuarioLogado();
-  console.log(usuario);
   if(usuario.nome == null) {
       html += `<div class="back-button">
                 <a id="back" href="blog.html" class="btn btn-dark">← Voltar para o blog</a>
@@ -139,6 +137,7 @@ function listaComentarios(post){
   });
 }
 
+//Ordena por data
 function compare(a,b) {
   if (a.dataSistema > b.dataSistema)
     return -1;
@@ -149,7 +148,6 @@ function compare(a,b) {
 
 function exibirComentarios(listaDeComentarios) {
   $("#area-comentarios").html('');
-  console.log(listaDeComentarios);
   for (let i = 0; i < listaDeComentarios.length; i++) {
     let html = '';
     html += `<section class="container noticia">
