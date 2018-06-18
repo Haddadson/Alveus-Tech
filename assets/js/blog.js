@@ -13,81 +13,112 @@ $(document).ready(function(){
 function exibirPost(post){
 	$("#blog-content").html('');
 	let html = '';
-	html += `<div class="back-button">
-            <a id="back" href="blog.html" class="btn btn-dark">← Voltar para o blog</a>
-          </div>
-          <div class="row">
-            <div class="manchete col-sm-12">
-              <h1>`+post.titulo+`</h1>
-              <p>`+post.subtitulo+`</p>
-            </div>          
-          </div>
-          <div class="row">
-            <div class="corpo col-sm-12">
-              <p>`+post.corpo+`</p>
-            </div>
-          </div>
-          <div class="row">
-          	<div class="col-sm-3">
-              <img class="img-fluid img-noticia allign-center" src="`+post.img+`">
-            </div>
-          </div>
-          <div class="row post-comentario">
-            <div class="col-md-12">
-              <label for="comentario">Deixe um comentário!</label>
-              <textarea class="form-control" id="comentario" rows = 2></textarea>
-            </div>
-          </div>
-          <button id="btnPostarComentario" class="btn-lg btn-dark">Comentar</button>
-          <hr>
-          <div id="area-comentarios"></div>
-          `;
-    $("#blog-content").append(html);
+  let usuario = getUsuarioLogado();
+  console.log(usuario);
+  if(usuario.nome == null) {
+      html += `<div class="back-button">
+                <a id="back" href="blog.html" class="btn btn-dark">← Voltar para o blog</a>
+              </div>
+              <div class="row">
+                <div class="manchete col-sm-12">
+                  <h1>`+post.titulo+`</h1>
+                  <p>`+post.subtitulo+`</p>
+                </div>          
+              </div>
+              <div class="row">
+                <div class="corpo col-sm-12">
+                  <p>`+post.corpo+`</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <img class="img-noticia allign-center" src="`+post.img+`">
+                </div>
+              </div>
+              <hr>
+              <h2 class="text-center comentario-title">Comentários</h2>
+              <div id="area-comentarios"></div>
+              `;
+        $("#blog-content").append(html);
+  } else {
 
-    $('#blog-content').on('click', '#btnPostarComentario', function(){
-      let campoComentario = $("#comentario").val();
+    	html += `<div class="back-button">
+                <a id="back" href="blog.html" class="btn btn-dark">← Voltar para o blog</a>
+              </div>
+              <div class="row">
+                <div class="manchete col-sm-12">
+                  <h1>`+post.titulo+`</h1>
+                  <p>`+post.subtitulo+`</p>
+                </div>          
+              </div>
+              <div class="row">
+                <div class="corpo col-sm-12">
+                  <p>`+post.corpo+`</p>
+                </div>
+              </div>
+              <div class="row">
+              	<div class="col-sm-3">
+                  <img class="img-noticia allign-center" src="`+post.img+`">
+                </div>
+              </div>
+              <div class="row post-comentario">
+                <div class="col-md-12">
+                  <label for="comentario">Deixe um comentário!</label>
+                  <textarea class="form-control" id="comentario" rows = 2></textarea>
+                </div>
+              </div>
+              <button id="btnPostarComentario" class="btn-lg btn-dark">Comentar</button>
+              <hr>
+              <h2 class="text-center comentario-title">Comentários</h2>
+              <div id="area-comentarios"></div>
+              `;
+        $("#blog-content").append(html);
 
-      if (campoComentario != null && campoComentario != '' && typeof(campoComentario) != undefined) {
-        let data = new Date();
-        let dd = data.getDate();
-        let mm = data.getMonth()+1; //Janeiro é 0!
-        let yyyy = data.getFullYear();
-        let horas = data.getHours();
-        let min = data.getMinutes()+1; //Janeiro é 0!
-        let sec = data.getSeconds();
-        let autor = getUsuarioLogado();
-        let dataSistema = Date.now();
+        $('#blog-content').on('click', '#btnPostarComentario', function(){
+          let campoComentario = $("#comentario").val();
 
-        if(dd<10) {
-            dd = '0'+dd;
-        } 
+          if (campoComentario != null && campoComentario != '' && typeof(campoComentario) != undefined) {
+            let data = new Date();
+            let dd = data.getDate();
+            let mm = data.getMonth()+1; //Janeiro é 0!
+            let yyyy = data.getFullYear();
+            let horas = data.getHours();
+            let min = data.getMinutes()+1; //Janeiro é 0!
+            let sec = data.getSeconds();
+            let autor = getUsuarioLogado();
+            let dataSistema = Date.now();
 
-        if(mm<10) {
-            mm = '0'+mm;
-        } 
+            if(dd<10) {
+                dd = '0'+dd;
+            } 
 
-        if(horas<10) {
-            horas = '0'+horas;
-        } 
+            if(mm<10) {
+                mm = '0'+mm;
+            } 
 
-        if(min<10) {
-            min = '0'+min;
-        } 
+            if(horas<10) {
+                horas = '0'+horas;
+            } 
 
-        if(sec<10) {
-            sec = '0'+sec;
-        } 
+            if(min<10) {
+                min = '0'+min;
+            } 
 
-        data = horas + ':' + min + ':' + sec + ' de ' + dd + '/' + mm + '/' + yyyy;
+            if(sec<10) {
+                sec = '0'+sec;
+            } 
 
-        let comentario = {conteudo: campoComentario, data: data, autor: autor.nome, dataSistema: dataSistema, postRelacionado: post.id};
-        console.log(comentario);
-        comentar(comentario);
+            data = horas + ':' + min + ':' + sec + ' de ' + dd + '/' + mm + '/' + yyyy;
 
-        $('#comentario').val('');
-        setTimeout(listaComentarios(post), 200);
-      }
-    }); //Fim click botão de comentar
+            let comentario = {conteudo: campoComentario, data: data, autor: autor.nome, dataSistema: dataSistema, postRelacionado: post.id};
+            console.log(comentario);
+            comentar(comentario);
+
+            $('#comentario').val('');
+            setTimeout(listaComentarios(post), 200);
+          }
+        }); //Fim click botão de comentar
+    } //Fim else
 
     setTimeout(listaComentarios(post), 200);
 

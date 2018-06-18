@@ -180,27 +180,47 @@ function deletePost(id) {
     };
 }
 
+
+function getPost(id, callback) {
+    let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
+    if (typeof id == "string") { id = parseInt(id); }
+    let req = store.get(id);
+
+    req.onsuccess = function (event) {
+        let record = req.result;
+        callback (record);
+    };
+    req.onerror = function (event) {
+        alert("Post não encontrado:", event.target.errorCode);
+    };
+}
+
 function desativarPost(id, post) {
     let store = getObjectStore(CONST_OS_POSTS, 'readwrite');
     if (typeof id == "string") { id = parseInt(id); }
     let req = store.get(id);
     req.onsuccess = function (event) {
-        let record = req.result;
-        alert('antes ' + record.ativo);
-        if(record.ativo){
-            record.ativo = false;
-        } else {
-            record.ativo = true;
-        }
+        var cursor = req.result;
+        if(cursor){
+            if(cursor.id == id){
+                var updateData = cursor;
 
-        alert('dps ' + record.ativo);
-        let reqUpdate = store.put(record);
-        reqUpdate.onsuccess = function () {
-            alert("Post alterado com sucesso");
+                if(updateData.ativo){
+                    updateData.ativo = false;
+                } else {
+                    updateData.ativo = true;
+                }
+
+                var reqUpdate = store.put(updateData);
+
+                reqUpdate.onsuccess = function () {
+                    alert("Post alterado com sucesso");
+                }
+                reqUpdate.onerror = function (event) {
+                    alert("Erro ao alterar contato:", event.target.errorCode);
+                };
+            }
         }
-        reqUpdate.onerror = function (event) {
-            alert("Erro ao alterar contato:", event.target.errorCode);
-        };
     };
     req.onerror = function (event) {
         alert("Post não encontrado ou erro ao alterar:", event.target.errorCode);
@@ -228,7 +248,7 @@ function comentar(comentario){
 
     req.onsuccess = function (evt) {
         console.log("Postado com sucesso.");
-        alert("Postado com sucesso");
+        // alert("Postado com sucesso");
     };
 
     req.onerror = function () {
@@ -252,35 +272,15 @@ function getComentarios(callback) {
     };
 }
 
-function contaComentarios(postRelacionado ,callback) {
-    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readonly');
-    alert(postRelacionado);
-    let req = store.count(postRelacionado);
-    req.onsuccess = function (event) {
-        callback(event.target.result);
-    };
-    req.onerror = function (event) {
-        alert("Erro ao obter usuarios:" + event.target.errorCode);
-    };
-}
-
-
-// function getComentarios(callback) {
+// function contaComentarios(postRelacionado ,callback) {
 //     let store = getObjectStore(CONST_OS_COMENTARIOS, 'readonly');
-//     let req = store.openCursor();
+//     alert(postRelacionado);
+//     let req = store.count(postRelacionado);
 //     req.onsuccess = function (event) {
-//         let cursor = event.target.result;
-
-//         if (cursor) {
-//             req = store.get(cursor.key);
-//             req.onsuccess = function (event) {
-//                 let value = event.target.result;
-//                 callback(value);
-//             }
-//             cursor.continue();
-//         }
+//         callback(event.target.result);
 //     };
 //     req.onerror = function (event) {
-//         alert11("Erro ao obter posts:", event.target.errorCode);
+//         alert("Erro ao obter usuarios:" + event.target.errorCode);
 //     };
 // }
+

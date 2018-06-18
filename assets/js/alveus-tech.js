@@ -237,9 +237,6 @@ function exibePostsAtivos() {
                         </div>
                        </section>`;
         }
-        if(html == ''){
-            html += '<p class="text-dark">Nenhum post encontrado 😢</p>'
-        }
  
         $("#news").append(html);
     });    
