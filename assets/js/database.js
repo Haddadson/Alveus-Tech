@@ -238,16 +238,49 @@ function comentar(comentario){
 }
 
 function getComentarios(callback) {
-    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readwrite');
-    var cursorRequest = store.index('dataSistema').openCursor(null, 'next'); 
-    cursorRequest.onsuccess = function(event) {
+    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readonly');
+    var req = store.index('dataSistema').openCursor(null, 'next'); 
+    req.onsuccess = function(event) {
         var cursor = event.target.result;
         if(cursor) {
             callback (cursor.value);
             cursor.continue ();
         }
     };
-    cursorRequest.onerror = function (event) {
+    req.onerror = function (event) {
         alert("Post não encontrado:", event.target.errorCode);
     };
 }
+
+function contaComentarios(postRelacionado ,callback) {
+    let store = getObjectStore(CONST_OS_COMENTARIOS, 'readonly');
+    alert(postRelacionado);
+    let req = store.count(postRelacionado);
+    req.onsuccess = function (event) {
+        callback(event.target.result);
+    };
+    req.onerror = function (event) {
+        alert("Erro ao obter usuarios:" + event.target.errorCode);
+    };
+}
+
+
+// function getComentarios(callback) {
+//     let store = getObjectStore(CONST_OS_COMENTARIOS, 'readonly');
+//     let req = store.openCursor();
+//     req.onsuccess = function (event) {
+//         let cursor = event.target.result;
+
+//         if (cursor) {
+//             req = store.get(cursor.key);
+//             req.onsuccess = function (event) {
+//                 let value = event.target.result;
+//                 callback(value);
+//             }
+//             cursor.continue();
+//         }
+//     };
+//     req.onerror = function (event) {
+//         alert11("Erro ao obter posts:", event.target.errorCode);
+//     };
+// }

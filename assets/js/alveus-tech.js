@@ -100,9 +100,8 @@ $(document).ready(function(){
                 postou = true;
             }
 
-            for(var i=0; i < files.length; i++){
-               reader.readAsDataURL(files[i]);
-            }
+            reader.readAsDataURL(files[0]);
+            
         } else {
             let post = { titulo: campoTitulo, subtitulo: campoSubtitulo, corpo: campoCorpo, ativo: true };
             console.log("Inseriu sem img");
@@ -151,8 +150,6 @@ $(document).ready(function(){
     $('#inputFoto').change(function(evt){
         carregaImagem(evt);
     });
-
-
 
 
     setTimeout(exibeTodosPosts, 200);
@@ -261,8 +258,6 @@ function carregaImagem(evt) {
                 $('#outImage').removeClass('not-show');
             }
         }
-        for(var i=0;i<files.length;i++){
-           fr.readAsDataURL(files[i]);
-        }
+        fr.readAsDataURL(files[0]);
     }
 }

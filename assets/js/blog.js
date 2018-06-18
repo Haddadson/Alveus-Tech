@@ -3,6 +3,7 @@ $(document).ready(function(){
 		let post = this;
 		let idPost = post.childNodes[1].childNodes[3].firstChild.childNodes[1].firstChild.nodeValue;
     getPost(idPost, function(post){
+      console.log(post);
 			exibirPost(post);
 		});
 
@@ -77,42 +78,64 @@ function exibirPost(post){
             sec = '0'+sec;
         } 
 
-        data = horas + ':' + min + ':' + sec + ' ' + mm + '/' + dd + '/' + yyyy;
+        data = horas + ':' + min + ':' + sec + ' de ' + dd + '/' + mm + '/' + yyyy;
 
         let comentario = {conteudo: campoComentario, data: data, autor: autor.nome, dataSistema: dataSistema, postRelacionado: post.id};
         console.log(comentario);
         comentar(comentario);
 
         $('#comentario').val('');
+        setTimeout(listaComentarios(post), 200);
       }
     }); //Fim click botão de comentar
 
-    getComentarios(function(comentario){
-      if(comentario.postRelacionado == post.id){
-        exibirComentarios(comentario);
-      }
-    });
+    setTimeout(listaComentarios(post), 200);
 
     
 }
 
-
-function exibirComentarios(comentario) {
+function listaComentarios(post){
   $("#area-comentarios").html('');
-  let html = '';
-  html += `<section class="container noticia">
-                  <div class="col-md-12 card">
-                <div class="row">
-                  <div class="col-md-2"><p>Autor:`+comentario.autor+`</p></div>
-                  <div class="col-md-6 news-text">
-                      <p class="resumo">`+comentario.conteudo+`</p>
-                  </div>
-                  <div class="col-md-1>
-                      <p class="text-dark">Data postagem: `+comentario.data+`</p>
+  var listaDeComentarios = new Array();
+
+  getComentarios(function(comentario){
+    if(comentario.postRelacionado == post.id){
+      listaDeComentarios.push(comentario);
+    }
+
+    listaDeComentarios.sort(compare);
+    exibirComentarios(listaDeComentarios);
+  });
+}
+
+function compare(a,b) {
+  if (a.dataSistema > b.dataSistema)
+    return -1;
+  if (a.dataSistema < b.dataSistema)
+    return 1;
+  return 0;
+}
+
+function exibirComentarios(listaDeComentarios) {
+  $("#area-comentarios").html('');
+  console.log(listaDeComentarios);
+  for (let i = 0; i < listaDeComentarios.length; i++) {
+    let html = '';
+    html += `<section class="container noticia">
+                    <div class="col-md-12 card">
+                  <div class="row">
+                    <div class="col-md-2"><p>Autor: `+listaDeComentarios[i].autor+`</p></div>
+                    <div class="col-md-6 news-text">
+                        <p class="resumo">`+listaDeComentarios[i].conteudo+`</p>
+                    </div>
+                    <div class="col-md-1>
+                        <p class="text-dark">Data postagem: `+listaDeComentarios[i].data+`</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>`;
-  $("#area-comentarios").append(html);
+              </section>`;
+    $("#area-comentarios").append(html);
+    
+  }
 
 }
