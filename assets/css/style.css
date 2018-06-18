@@ -9,6 +9,16 @@
   margin-top: 2%;
 }
 
+.like-icon {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 10%;
+}
+
+.text-grey {
+  color: #b5b5b5;
+}
+
 .post-img {
   width: 150px;
   height: 150px;
@@ -338,6 +348,10 @@ textarea {
     font-size: 1.1em !important;
   }
 
+  .like-icon {
+    margin-bottom: 5%;
+  }
+
 
 }
 
@@ -437,6 +451,10 @@ textarea {
 
   .form-text {
     font-size: 1.1em !important;
+  }
+
+  .like-icon {
+    margin-bottom: 5%;
   }
 
 
@@ -539,6 +557,10 @@ textarea {
 
   .form-text {
     font-size: 1.1em !important;
+  }
+
+  .like-icon {
+    margin-bottom: 5%;
   }
 
 }

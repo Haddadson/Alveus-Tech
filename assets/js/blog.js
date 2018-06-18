@@ -122,14 +122,19 @@ function exibirComentarios(listaDeComentarios) {
   for (let i = 0; i < listaDeComentarios.length; i++) {
     let html = '';
     html += `<section class="container noticia">
-                    <div class="col-md-12 card">
+                <div class="col-md-12 card">
                   <div class="row">
-                    <div class="col-md-2"><p>Autor: `+listaDeComentarios[i].autor+`</p></div>
-                    <div class="col-md-6 news-text">
-                        <p class="resumo">`+listaDeComentarios[i].conteudo+`</p>
+                    <div class="col-md-4 col-4"><p class="text-dark font-weight-bold">`+listaDeComentarios[i].autor+`</p></div>
+                    <div class="col-md-8 col-8 justify-content-end">
+                        <p class="text-grey text-right">`+listaDeComentarios[i].data+`</p>
                     </div>
-                    <div class="col-md-1>
-                        <p class="text-dark">Data postagem: `+listaDeComentarios[i].data+`</p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 news-text">
+                        <br><p class="resumo">`+listaDeComentarios[i].conteudo+`</p>
+                    </div>
+                    <div class="col-md-2">
+                      <br><p class="text-dark">Curtir    <img src="../assets/img/thumbs-up-icon.png" class="like-icon"></p>
                     </div>
                   </div>
                 </div>
